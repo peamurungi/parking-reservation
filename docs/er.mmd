@@ -1,0 +1,27 @@
+erDiagram
+    AUTH_USERS ||--|| PROFILES : "has one"
+    AUTH_USERS ||--o{ RESERVATIONS : "makes"
+    SLOTS ||--o{ RESERVATIONS : "is booked in"
+    AUTH_USERS {
+        uuid id PK
+        text email
+    }
+    PROFILES {
+        uuid user_id PK, FK
+        text role "driver or attendant"
+    }
+    SLOTS {
+        bigint id PK
+        text code UK "A1, B3"
+        text zone
+    }
+    RESERVATIONS {
+        bigint id PK
+        bigint slot_id FK
+        uuid user_id FK
+        text plate
+        timestamptz start_time
+        timestamptz end_time
+        numeric fee "hours x rate"
+        timestamptz created_at
+    }

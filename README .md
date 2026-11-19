@@ -1,5 +1,11 @@
 # Parking Slot Reservation System
 
+**Student:** MURUNGI Peace (223019597) · Project 51 · Medium · Transport
+**Live app:** _paste your Vercel link here_ · **API:** _paste your Render link here_
+Docs: [Brief](docs/BRIEF.md) · [Data model](docs/DATA_MODEL.md) · [Demo script](docs/DEMO_SCRIPT.md) · [Deploy guide](docs/DEPLOY.md)
+
+**Why this stack:** Supabase gives free managed Postgres plus login; Django REST writes the API and validation quickly; a relational database fits slots, users and reservations, and Postgres can enforce no-overlap itself.
+
 Stack A: **Next.js** (client) + **Django REST** (server) + **Supabase** (Postgres + Auth).
 Roles: **driver** (reserves slots, sees own reservations) and **attendant** (sees everything, manages slots, sees revenue).
 
