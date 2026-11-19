@@ -2,6 +2,7 @@
 import { use, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Nav from '@/components/Nav'
+import Splash from '@/components/Splash'
 import { ErrorBox, Loading } from '@/components/States'
 import { api, ApiError, Reservation } from '@/lib/api'
 import { useMe } from '@/lib/useMe'
@@ -18,7 +19,7 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
       .catch((e: ApiError) => setError(e.status === 404 ? 'Reservation not found.' : e.message))
   }, [role, id])
 
-  if (!role) return <main><Loading /></main>
+  if (!role) return <Splash />
 
   async function cancel() {
     if (!confirm('Cancel this reservation?')) return
@@ -30,7 +31,6 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
     <>
       <Nav role={role} />
       <main style={{ maxWidth: '32rem' }}>
-
         <h1>Reservation #{id}</h1>
         {error ? <ErrorBox message={error} /> : !r ? <Loading /> : (
           <div className="card">

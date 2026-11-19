@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Nav from '@/components/Nav'
+import Splash from '@/components/Splash'
 import { Empty, ErrorBox, Loading } from '@/components/States'
 import { api, Reservation } from '@/lib/api'
 import { useMe } from '@/lib/useMe'
@@ -21,7 +22,7 @@ export default function List() {
     api<Page>('/reservations/?page=' + page).then(setData).catch(e => setError(e.message))
   }, [role, page])
 
-  if (!role) return <main><Loading /></main>
+  if (!role) return <Splash />
 
   return (
     <>

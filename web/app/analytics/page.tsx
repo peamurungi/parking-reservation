@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Nav from '@/components/Nav'
+import Splash from '@/components/Splash'
 import { Empty, ErrorBox, Loading } from '@/components/States'
 import { api } from '@/lib/api'
 import { useMe } from '@/lib/useMe'
@@ -13,7 +14,7 @@ export default function Analytics() {
   const [error, setError] = useState('')
   useEffect(() => { if (role === 'attendant') api<Row[]>('/analytics/revenue-per-day/').then(setRows).catch(e => setError(e.message)) }, [role])
 
-  if (!role) return <main><Loading /></main>
+  if (!role) return <Splash />
 
   return (
     <>

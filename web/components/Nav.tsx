@@ -7,8 +7,9 @@ export default function Nav({ role }: { role: string | null }) {
   const router = useRouter()
   return (
     <nav>
-      <b>P · Parking</b>
-      <Link href="/">Map</Link>
+      <Link href="/" className="brand"><span className="logo sm">P</span> Parking</Link>
+      <Link href="/">Home</Link>
+      <Link href="/map">Map</Link>
       <Link href="/reservations">Reservations</Link>
       <Link href="/reserve">Reserve</Link>
       {role === 'attendant' && <Link href="/analytics">Revenue</Link>}

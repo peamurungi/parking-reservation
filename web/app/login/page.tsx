@@ -23,21 +23,38 @@ export default function Login() {
   }
 
   return (
-    <main style={{ maxWidth: '26rem' }}>
-      <h1>Parking reservation</h1>
-      <div className="toggle">
-        <button className={mode === 'login' ? '' : 'ghost'} onClick={() => setMode('login')}>Log in</button>
-        <button className={mode === 'signup' ? '' : 'ghost'} onClick={() => setMode('signup')}>Sign up</button>
-      </div>
-      <form onSubmit={submit}>
-        <label htmlFor="e">Email</label>
-        <input id="e" type="email" required value={email} onChange={e => setEmail(e.target.value)} />
-        <label htmlFor="p">Password</label>
-        <input id="p" type="password" required minLength={6} value={password} onChange={e => setPassword(e.target.value)} />
-        <p style={{ marginTop: '1rem' }}><button disabled={busy}>{busy ? 'Please wait…' : mode === 'login' ? 'Log in' : 'Create account'}</button></p>
-        {msg && <p role="alert" className="err" style={{ color: 'var(--bad)' }}>{msg}</p>}
-        {mode === 'signup' && <small>New accounts are drivers. An attendant is promoted by an admin in the database.</small>}
-      </form>
-    </main>
+    <div className="auth">
+      <aside className="hero">
+        <img src="/parking-hero.svg" alt="" />
+        <h2>Welcome to Parking Reservation</h2>
+        <p>Reserve your slot in seconds. Skip the circling and park with confidence.</p>
+        <ul>
+          <li>See free slots at a glance</li>
+          <li>Never double-booked: the server checks every time</li>
+          <li>Clear fee shown before you confirm</li>
+        </ul>
+      </aside>
+
+      <section className="panel">
+        <div className="logo">P</div>
+        <h1>{mode === 'login' ? 'Log in' : 'Create your account'}</h1>
+        <p className="sub">{mode === 'login' ? 'Welcome back. Enter your details to continue.' : 'It takes less than a minute.'}</p>
+        <form onSubmit={submit}>
+          <label htmlFor="e">Email</label>
+          <input id="e" type="email" required autoComplete="email" value={email} onChange={e => setEmail(e.target.value)} />
+          <label htmlFor="p">Password</label>
+          <input id="p" type="password" required minLength={6} autoComplete={mode === 'login' ? 'current-password' : 'new-password'} value={password} onChange={e => setPassword(e.target.value)} />
+          <p style={{ marginTop: '1.1rem' }}><button className="wide" disabled={busy}>{busy ? 'Please wait…' : mode === 'login' ? 'Log in' : 'Create account'}</button></p>
+          {msg && <p role="alert" style={{ color: 'var(--bad)' }}>{msg}</p>}
+        </form>
+        <p className="switch">
+          {mode === 'login' ? 'New here? ' : 'Already have an account? '}
+          <a href="#" onClick={e => { e.preventDefault(); setMsg(''); setMode(mode === 'login' ? 'signup' : 'login') }}>
+            {mode === 'login' ? 'Create an account' : 'Log in'}
+          </a>
+        </p>
+        {mode === 'signup' && <small>New accounts are drivers. Attendants are set up by an administrator.</small>}
+      </section>
+    </div>
   )
 }
