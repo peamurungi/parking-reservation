@@ -1,0 +1,25 @@
+:root{--g:#15803d;--bg:#f6faf7;--ink:#10201a;--line:#cfe1d6;--bad:#dc2626}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.5 system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+nav{display:flex;gap:1rem;align-items:center;padding:.8rem 1.2rem;background:#fff;border-bottom:1px solid var(--line);flex-wrap:wrap}
+nav a{color:var(--g);text-decoration:none;font-weight:600}.sp{flex:1}.role{font-size:.8rem;border:1px solid var(--line);padding:.1rem .6rem;border-radius:2rem}
+main{max-width:60rem;margin:1.5rem auto;padding:0 1rem}
+h1{margin-top:0}
+button,.btn{background:var(--g);color:#fff;border:0;border-radius:.5rem;padding:.5rem 1rem;font:inherit;cursor:pointer;text-decoration:none;display:inline-block}
+button.ghost{background:#fff;color:var(--g);border:1px solid var(--g)}button.danger{background:var(--bad)}
+button:disabled{opacity:.5}
+input,select{font:inherit;padding:.5rem;border:1px solid var(--line);border-radius:.5rem;width:100%}
+label{display:block;margin:.7rem 0 .2rem;font-weight:600}
+form,.card{background:#fff;border:1px solid var(--line);border-radius:.8rem;padding:1rem 1.2rem}
+.state{padding:1rem;background:#fff;border:1px dashed var(--line);border-radius:.6rem}.err{color:var(--bad);border-color:var(--bad)}
+.ok{color:var(--g)}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line)}
+th,td{padding:.55rem .7rem;border-bottom:1px solid var(--line);text-align:left}
+.map{display:grid;grid-template-columns:repeat(auto-fill,minmax(6.5rem,1fr));gap:.7rem}
+.slot{border-radius:.7rem;padding:.8rem;text-align:center;border:2px solid var(--g);background:#dcfce7;font-weight:700;color:var(--ink);text-decoration:none;display:block}
+.slot small{display:block;font-weight:400}
+.slot.busy{border-color:var(--bad);background:#fee2e2;cursor:not-allowed}
+.slot.sel{outline:3px solid #0b0f0c}
+.legend{display:flex;gap:1rem;margin:.5rem 0 1rem;font-size:.9rem}
+.pager{display:flex;gap:.6rem;align-items:center;margin-top:.8rem}
+.toggle{display:flex;gap:.5rem;margin-bottom:1rem}

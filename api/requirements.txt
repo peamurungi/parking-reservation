@@ -1,0 +1,8 @@
+Django==6.1.3
+djangorestframework
+PyJWT[crypto]
+psycopg2-binary
+python-dotenv
+django-cors-headers
+dj-database-url
+gunicorn
