@@ -1,7 +1,7 @@
 # Parking Slot Reservation System
 
 **Student:** MURUNGI Peace (223019597) · Project 51 · Medium · Transport
-**Live app:** _paste your Vercel link here_ · **API:** _paste your Render link here_
+**Live app:** https://parking-reservation-chi.vercel.app · **API:** https://parking-reservation-zx8e.onrender.com
 Docs: [Brief](docs/BRIEF.md) · [Data model](docs/DATA_MODEL.md) · [Demo script](docs/DEMO_SCRIPT.md) · [Deploy guide](docs/DEPLOY.md)
 
 **Why this stack:** Supabase gives free managed Postgres plus login; Django REST writes the API and validation quickly; a relational database fits slots, users and reservations, and Postgres can enforce no-overlap itself.
