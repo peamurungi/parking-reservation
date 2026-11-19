@@ -21,6 +21,8 @@ export default function List() {
     api<Page>('/reservations/?page=' + page).then(setData).catch(e => setError(e.message))
   }, [role, page])
 
+  if (!role) return <main><Loading /></main>
+
   return (
     <>
       <Nav role={role} />

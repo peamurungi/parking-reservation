@@ -18,6 +18,8 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
       .catch((e: ApiError) => setError(e.status === 404 ? 'Reservation not found.' : e.message))
   }, [role, id])
 
+  if (!role) return <main><Loading /></main>
+
   async function cancel() {
     if (!confirm('Cancel this reservation?')) return
     try { await api('/reservations/' + id + '/', { method: 'DELETE' }); router.push('/reservations') }
@@ -28,6 +30,7 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
     <>
       <Nav role={role} />
       <main style={{ maxWidth: '32rem' }}>
+
         <h1>Reservation #{id}</h1>
         {error ? <ErrorBox message={error} /> : !r ? <Loading /> : (
           <div className="card">

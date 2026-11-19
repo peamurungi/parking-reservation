@@ -13,6 +13,8 @@ export default function Analytics() {
   const [error, setError] = useState('')
   useEffect(() => { if (role === 'attendant') api<Row[]>('/analytics/revenue-per-day/').then(setRows).catch(e => setError(e.message)) }, [role])
 
+  if (!role) return <main><Loading /></main>
+
   return (
     <>
       <Nav role={role} />

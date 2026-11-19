@@ -28,6 +28,9 @@ function Form() {
 
   useEffect(() => { if (role) api<Slot[]>('/slots/').then(setSlots).catch(e => setError(e.message)) }, [role])
 
+  if (!role) return <main><Loading /></main>
+
+
   const hours = Math.max(0, Math.ceil((+new Date(end) - +new Date(start)) / 3600e3))
 
   async function submit(e: React.FormEvent) {
@@ -60,6 +63,7 @@ function Form() {
             <input id="en" type="datetime-local" required value={end} onChange={e => setEnd(e.target.value)} />
             <p>Estimated fee: <b>{hours * RATE} RWF</b> <small>({hours} h, final amount set by the server)</small></p>
             <button disabled={busy}>{busy ? 'Reserving…' : 'Reserve'}</button>
+
             {error && <ErrorBox message={error} />}
           </form>
         )}
